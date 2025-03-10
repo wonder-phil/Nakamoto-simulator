@@ -1,0 +1,417 @@
+\documentclass[12pt]{article}
+\textwidth 15.4 cm
+\textheight 21.5 cm
+\topmargin 0.5cm
+\evensidemargin 2 cm
+\oddsidemargin 3 mm
+
+\newcommand{\qed}{\rule[-0.2ex]{0.3em}{1.4ex}}
+\newcommand{\out}[1]{\mbox{\bf {\sf Out}}({#1})}
+\newenvironment{Proof}%
+{\par\vspace{0.5ex}\noindent{\bf Proof:}\hspace{0.5em}}%
+{\nopagebreak
+\strut\nopagebreak
+\hspace{\fill}\qed\par\medskip\noindent}
+\newenvironment{proof}% lowercase version...
+{\par\vspace{0.5ex}\noindent{\bf Proof:}\hspace{0.5em}}%
+{\nopagebreak
+\strut\nopagebreak
+\hspace{\fill}\qed\par\medskip\noindent}
+\newenvironment{proofattempt}%
+{\par\vspace{0.5ex}\noindent{\bf Proof Attempt:}\hspace{0.5em}}%
+{\nopagebreak
+\strut\nopagebreak
+\hspace{\fill}\qed\par\medskip\noindent}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{property}{Property}
+\newtheorem{lemma}{Lemma}
+\newtheorem{fact}{Fact}
+\newtheorem{definition}{Definition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+\newtheorem{observation}{Observation}
+\newtheorem{conjecture}{Conjecture}
+
+\newcommand{\support}{\mbox{\sf supp}}
+\newcommand{\OMS}{\mbox{$\bf \Omega_{S}$}}
+
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{color}
+\usepackage{circuitikz}
+\usepackage{listings}
+%\usepackage{tikz}
+
+\usepackage{listings}
+\usepackage{color}
+\usepackage{textcomp}
+
+\lstdefinelanguage{JavaScript}{
+  morekeywords=[1]{break, continue, delete, else, for, function, if, in,
+    new, return, this, typeof, var, void, while, with},
+  % Literals, primitive types, and reference types.
+  morekeywords=[2]{false, null, true, boolean, number, undefined,
+    Array, Boolean, Date, Math, Number, String, Object,new},
+  % Built-ins.
+  morekeywords=[3]{eval, parseInt, parseFloat, escape, unescape,let,var,const,await,async,try,catch,import,from,export},
+  morekeywords=[4]{className,h1,h2,div,header,Card.Text,Card.Body},
+  sensitive,
+  morecomment=[s]{/*}{*/},
+  morecomment=[l]//,
+  morecomment=[s]{/**}{*/}, % JavaDoc style comments
+  morestring=[b]',
+  morestring=[b]"
+}[keywords, comments, strings]
+
+% Requires package: color.
+\definecolor{mediumgray}{rgb}{0.3, 0.4, 0.4}
+\definecolor{mediumblue}{rgb}{0.0, 0.0, 0.8}
+\definecolor{forestgreen}{rgb}{0.13, 0.55, 0.13}
+\definecolor{darkviolet}{rgb}{0.58, 0.0, 0.83}
+\definecolor{royalblue}{rgb}{0.25, 0.41, 0.88}
+\definecolor{crimson}{rgb}{0.86, 0.8, 0.24}
+\definecolor{amber}{rgb}{1.0, 0.75, 0.0}
+\definecolor{cobalt}{rgb}{0.0, 0.28, 0.67}
+\definecolor{darkcandyapplered}{rgb}{0.64, 0.0, 0.0}
+
+\lstdefinestyle{json}{
+    basicstyle=\normalfont\ttfamily,
+    numbers=left,
+    numberstyle=\scriptsize,
+    breaklines=true,
+    frame=lines,
+    backgroundcolor=\color{gray!10},
+    showstringspaces=false,
+    string=[db]{"},
+    stringstyle=\color{green!50!black},
+    morestring=[s][\color{black}]{\ \ "}{":},
+    keywordstyle=\color{blue},
+    keywords={true,false,null},
+    literate=
+     *{0}{{{\color{red}0}}}{1}
+      {1}{{{\color{red}1}}}{1}
+      {2}{{{\color{red}2}}}{1}
+      {3}{{{\color{red}3}}}{1}
+      {4}{{{\color{red}4}}}{1}
+      {5}{{{\color{red}5}}}{1}
+      {6}{{{\color{red}6}}}{1}
+      {7}{{{\color{red}7}}}{1}
+      {8}{{{\color{red}8}}}{1}
+      {9}{{{\color{red}9}}}{1}
+      {.}{{{\color{red}.}}}{1}
+      {:}{{{\color{gray}{:}}}}{1}
+      {,}{{{\color{gray}{,}}}}{1}
+      {\{}{{{\color{gray}{\{}}}}{1}
+      {\}}{{{\color{gray}{\}}}}}{1}
+      {[}{{{\color{gray}{[}}}}{1}
+      {]}{{{\color{gray}{]}}}}{1},
+}
+
+\lstdefinestyle{JSES6Base}{
+  backgroundcolor=\color{white},
+  basicstyle=\ttfamily,
+  alsoletter={.},
+  breakatwhitespace=false,
+  breaklines=false,
+  captionpos=b,
+  columns=fullflexible,
+  commentstyle=\color{mediumgray}\upshape,
+  emph={},
+  emphstyle=\color{crimson},
+  extendedchars=true,  % requires inputenc
+  fontadjust=true,
+  frame=single,
+  identifierstyle=\color{black},
+  keepspaces=true,
+  keywordstyle=\color{mediumblue},
+  keywordstyle={[2]\color{darkviolet}},
+  keywordstyle={[3]\color{royalblue}},
+  keywordstyle={[4]\color{darkcandyapplered}},
+  numbers=left,
+  numbersep=5pt,
+  numberstyle=\tiny\color{black},
+  rulecolor=\color{black},
+  showlines=true,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  stringstyle=\color{forestgreen},
+  tabsize=2,
+  title=\lstname,
+  upquote=true  % requires textcomp
+}
+
+\lstdefinestyle{JavaScript}{
+  language=JavaScript,
+  style=JSES6Base
+}
+\lstdefinestyle{ES6}{
+  language=ES6,
+  style=JSES6Base
+}
+
+\lstset{
+	language=JavaScript
+}
+
+
+\usepackage{textcomp}
+\usepackage{booktabs}
+
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\cov}{\sf cov}
+ 
+\newcommand{\IR}{{\rm\hbox{I\kern-.15em R}}}
+\newcommand{\reals}{{\rm\hbox{I\kern-.15em R}}}
+\newcommand{\IN}{{\rm\hbox{I\kern-.15em N}}}
+\newcommand{\IZ}{{\sf\hbox{Z\kern-.40em Z}}}
+\newcommand{\id}{\mbox{\bf \em id}}
+\newcommand{\lo}{\mbox{\bf \em loc}}
+\newcommand{\E}{\mbox{\sf {I\kern-.15em E}}}
+\newcommand{\F}{\mbox{\bf F}}
+\newcommand{\Var}{\mbox{\bf Var}}
+\newcommand{\Prob}{\mbox{\sf \hbox{I\kern-.15em P}}}
+\newcommand{\g}{\mbox{\bf \em g}}
+\newcommand{\SeqRank}{\mbox{\bf \em SequentialRank}}
+
+\newcommand{\vat}{\mbox{\scshape \tiny VAT}}
+\newcommand{\emm}{\mbox{\scshape \tiny EM}}
+\newcommand{\ram}{\mbox{\scshape \tiny RAM}}
+\newcommand{\mNC}{\ensuremath{\mbox{m}{\cal NC}^{1}}}
+
+\newcommand{\ta}{\mbox{\color{blue} T}}
+\newcommand{\h}{\mbox{\color{red} H}}
+
+%
+%
+%
+%\lstset{language=Scheme} 
+%
+%
+%
+
+
+\begin{document}
+\title{Stacks Tenure Transaction\footnote{These notes use github co-pilot AI.}}
+\author{
+Phillip G. Bradford\thanks{phillip.bradford@uconn.edu, phillip.g.bradford@gmail.com,
+{\sc University of Connecticut, Department of Computing, Stamford, CT USA}}
+}
+
+\date{\small\today}
+
+\maketitle
+
+%
+%
+%
+\begin{abstract}
+Miner tenure is updated by a tenure transaction in the Stacks chain.
+A tenure tranasaction is a special type of transaction.
+Miners are elected to produce blocks in the Stacks chain by the stackers.
+\end{abstract}
+
+%
+%
+%
+%
+\section{Tenure tranasaction}
+\label{Tenure tranasaction}
+
+Currently, there seems to be no {\em v2} API for tenure transactions.  
+So we use the v1 API:\\
+
+\lstinline|https://api.mainnet.hiro.so/extended/v1/tx?type=tenure_change&limit=1|\\
+
+
+For example, try:\\
+\begin{lstlisting}[label=tenure=curl,style=json, caption={Curl command for getting the current tenured transaction}]
+  Windows> curl.exe  "https://api.mainnet.hiro.so/extended/v1/tx?type=tenure_change&limit=1"
+ \end{lstlisting}
+
+%
+%
+\vspace{0.25in}
+%
+%
+
+This endpoint gets the last tenure transaction.  The response is a JSON transaction object in Listing~\ref{transactionTenure}.
+The tenure transaction is a special type of transaction.  
+Its~\lstinline|tx_type| has the value~\lstinline|tenure_change|.  
+ The tenure transaction is used to change the consensus hash for the next tenure on the Stacks chain. 
+ The consensus hash is a hash of the block header.  
+The consensus hash is used to determine the next block producer. 
+
+%
+%
+\vspace{0.25in}
+%
+%
+
+\begin{lstlisting}[label=transactionTenure,style=json, caption={Tenure transaction}]
+  {
+    "tx_id": "0xeda08c23df80be0cf6fde074e
+       6c7651f117f306a426f92fd660dbd0d18643942",
+    "nonce": 18469,
+    "fee_rate": "0",
+    "sender_address": "SP3MCVE3HJP6T8QS4A9R0ETVJVGRZJA04MKJTPHG5",
+    "sponsored": false,
+    "post_condition_mode": "deny",
+    "post_conditions": [],
+    "anchor_mode": "on_chain_only",
+    "block_hash": "0xd3c4d7b45303f0450bf2e015e
+        b7bafc9b8dd05096089664b87613e95209981f9",
+    "block_height": 749062,
+    "block_time": 1741635624,
+    "block_time_iso": "2025-03-10T19:40:24.000Z",
+    "burn_block_time": 1741635606,
+    "burn_block_height": 887215,
+    "burn_block_time_iso": "2025-03-10T19:40:06.000Z",
+    "parent_burn_block_time": 1741635353,
+    "parent_burn_block_time_iso": "2025-03-10T19:35:53.000Z",
+    "canonical": true,
+    "tx_index": 0,
+    "tx_status": "success",
+    "tx_result": {
+      "hex": "0x0703",
+      "repr": "(ok true)"
+    },
+    "event_count": 0,
+    "parent_block_hash": "0xd523a4e7e3d719752caba280e9fa77521
+       16cbb7c49abbcd5c9b93a3cdf8e385b",
+    "is_unanchored": false,
+    "microblock_hash": "0x",
+    "microblock_sequence": 2147483647,
+    "microblock_canonical": true,
+    "execution_cost_read_count": 0,
+    "execution_cost_read_length": 0,
+    "execution_cost_runtime": 0,
+    "execution_cost_write_count": 0,
+    "execution_cost_write_length": 0,
+    "events": [],
+    "tx_type": "tenure_change",
+    "tenure_change_payload": {
+      "tenure_consensus_hash": "0x626ae97693d16ea81e2bb97a454f78fbc97008c0",
+      "prev_tenure_consensus_hash": "0x68209d52defca5f053ffda848aa3f86f972095a7",
+      "burn_view_consensus_hash": "0x626ae97693d16ea81e2bb97a454f78fbc97008c0",
+      "previous_tenure_end": "0x5ddc1865e9cdfcc02d8a7d4d028586fb
+        7a5e9af3a431f063fd31ce8cdb4b9f30",
+      "previous_tenure_blocks": 17,
+      "cause": "block_found",
+      "pubkey_hash": "0xe8cdb871958da45f245270076b72dc31f92804a4"
+    }
+  }
+\end{lstlisting}
+
+%
+%
+\vspace{0.25in}
+%
+%
+
+Listing~\ref{JsonTenure} shows the key fields of a tenure transaction.
+The tenure transaction has a \lstinline|tx_type| of \lstinline|tenure_change|.
+The \lstinline|tenure_change_payload| has the following fields:
+
+%
+%
+\vspace{0.25in}
+%
+%
+
+\begin{itemize}   
+
+\item \lstinline|tenure_consensus_hash| is the consensus hash for the next tenure.
+
+\item \lstinline|prev_tenure_consensus_hash| is the consensus hash for the previous tenure.
+
+\item \lstinline|burn_view_consensus_hash| is the consensus hash for the burn view.
+
+\item \lstinline|previous_tenure_end| is the end of the previous tenure.  
+
+\item \lstinline|previous_tenure_blocks| is the number of blocks in the previous tenure.
+
+\item \lstinline|cause| is the cause of the tenure change.  It can be \lstinline|block_found| or \lstinline|timeout|.
+The cause is \lstinline|block_found| if a block was found in the previous tenure.
+The cause is \lstinline|timeout| if no block was found in the previous tenure.
+
+\item \lstinline|pubkey_hash| is the public key hash of the block producer.
+
+\end{itemize}
+%
+
+Cosider a tenure transaction and its \lstinline|prev_tenure_consensus_hash| field.
+This field can be used to find the previous tenure transaction. 
+Hence the previous miner. 
+
+%
+%
+\vspace{0.25in}
+%
+%
+
+%
+%
+\begin{lstlisting}[label=JsonTenure,style=json, caption={Tenure part}]
+  "tenure_change_payload": {
+    "tenure_consensus_hash": "0x626ae97693d16ea81e2bb97a
+      454f78fbc97008c0",
+    "prev_tenure_consensus_hash": "0x68209d52defca5f053f
+      fda848aa3f86f972095a7",
+    "burn_view_consensus_hash": "0x626ae97693d16ea81e2bb
+      97a454f78fbc97008c0",
+    "previous_tenure_end": "0x5ddc1865e9cdfcc02d8a7d4d028586fb
+      7a5e9af3a431f063fd31ce8cdb4b9f30",
+    "previous_tenure_blocks": 17,
+    "cause": "block_found",
+    "pubkey_hash": "0xe8cdb871958da45f245270076
+      b72dc31f92804a4"
+  }
+\end{lstlisting}
+
+
+
+%
+%
+%\section{Notes}
+%
+%
+
+
+
+
+%ES6 (ECMAScript 6) is ECMAScript 2015.
+
+%React is based on ES6.
+
+
+%
+%
+%
+%
+\begin {thebibliography}{99}
+%
+
+
+\bibitem{how-tranasactions-work} How tranasactions work: https://docs.stacks.co/concepts/transactions/transactions
+
+
+\bibitem{hero-endpoint} api.hiro.so endpoint documentation: https://docs.hiro.so/stacks/api/transactions
+
+\bibitem{nakanoto-in-10-minutes} Kenny Rogers, Nakamoto in 10 minutes: 
+https://docs.stacks.co/nakamoto-upgrade/nakamoto-in-10-minutes
+2025-03-10.
+
+\bibitem{All-ECMA-JS}
+https://tc39.es/ecma262/
+
+
+
+\end {thebibliography}
+\end{document}
+
+%
