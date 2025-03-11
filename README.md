@@ -7,7 +7,8 @@
 >> **Proxy** contains a Javascript proxy to avoid CORS while running the block_explorer <br /> <br />
 
 > To run the block_explorer you must use two terminals: **terminal 1** and **terminal 2**
-> Proxy to avoid CORS <br />
+> Proxy to avoid CORS <br /><br />
+
 > In **terminal 1** <br />
 > <br />
 >> cd proxy <br />
