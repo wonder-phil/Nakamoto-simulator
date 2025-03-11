@@ -10,6 +10,7 @@
 > Proxy to avoid CORS <br />
 > In **terminal 1** <br />
 > <br />
+>> cd proxy <br />
 >> npm init -y <br />
 >> npm install cors <br />
 >> npm install express <br />
