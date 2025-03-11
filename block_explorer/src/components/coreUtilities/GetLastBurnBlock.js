@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import BitcoinJsonContainer from "../core/BitcoinJsonContainer";
+import BitcoinJsonContainer from "../coreContainers/BitcoinJsonContainer";
 import RoutesAndEndpoints from "./RoutesAndEndpoints";
 
 export default function GetLastBitcoinBlock(fullBitcoinHash) {

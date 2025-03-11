@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import StacksBlock from "../core/StacksBlock";
+import StacksBlock from "../coreContainers/StacksBlock";
 import RoutesAndEndpoints from "./RoutesAndEndpoints";
 
  export default function GetLastStacksBlock() {

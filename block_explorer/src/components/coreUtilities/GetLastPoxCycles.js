@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import PoxCycle from "../core/PoxCycle";   
+import PoxCycle from "../coreContainers/PoxCycle";   
 import RoutesAndEndpoints from "./RoutesAndEndpoints";
 
  export default function PoxCycles() {
