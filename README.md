@@ -1,7 +1,8 @@
 ﻿# Nakamoto-simulator <br /> <br />
 
-> Docs contains architecture documents <br />
-> <br />
+> Structure of this repo <br />
+>> Docs contains documents describing key components  <br />
+>> Architecture contains architecture documents <br /> <br />
 
 > Proxy to avoid CORS <br />
 > In one terminal <br />
