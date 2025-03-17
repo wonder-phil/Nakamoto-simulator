@@ -242,7 +242,7 @@ To create a basic Card component, do the next steps.
 \item
 \lstinline[language=bash]|npm install react bootstrap react-bootstrap|
 
-\item Modify App.js in the \lstinline[language=bash]|src| directory with the code
+\item Replace the code in App.js in the \lstinline[language=bash]|src| directory with the code
 in Listing~\ref{updateApp.js}.
 
 \end{enumerate}
@@ -288,19 +288,17 @@ In Listing~\ref{updateApp.js}, the basic updated version is,\\
 %
 %
 %
-\begin{lstlisting}[label=subCardListing,style=JSES6Base, caption={Basic Card from React-bootstrap that is a subset of {\em GetLastBurnBlock}}]
+\begin{lstlisting}[label=subCardListing,style=JSES6Base, caption={Basic Static Card from React-bootstrap}]
   import Card from 'react-bootstrap/Card';
   import "bootstrap/dist/css/bootstrap.min.css";
   
   export default function BlockCard(
-      { height,
+      { 
         hash,
+        height,
         block_time_iso,
-        tenure_height,
-        burn_block_time_iso,
         burn_block_hash,
-        burn_block_height,
-        miner_tx_id,  }
+        burn_block_height }
   ) {
   
     return (
@@ -316,7 +314,6 @@ In Listing~\ref{updateApp.js}, the basic updated version is,\\
           </Card.Text>
           </Card.Body>
       </Card>
-    
     );
   }
 \end{lstlisting}
