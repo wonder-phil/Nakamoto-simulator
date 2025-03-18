@@ -9,10 +9,9 @@
 <br /> <br />
 
 > After cloning this repo: <br />
->> cd nakamoto-simulator  <br /> <br />
 > In a **terminal** <br />
-> <br />
->> cd card-example-static <br />
+>> cd nakamoto-simulator  <br /> 
+>> **cd card-example-static** <br />
 >> npm install <br />
 >> npm start <br />
 
