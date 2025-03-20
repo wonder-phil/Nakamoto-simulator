@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Card, Button, Collapse } from "react-bootstrap";
+import { Card, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function getLast20Chars(str) {

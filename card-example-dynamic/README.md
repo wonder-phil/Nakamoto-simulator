@@ -10,10 +10,10 @@
 
 > After cloning this repo: <br />
 > In a **terminal** <br />
->> cd nakamoto-simulator  <br /> 
+>> cd Nakamoto-simulator  <br /> 
 >> **cd card-example-dynamic** <br />
 >> npm install <br />
->> npm start <br />
+>> npm start <br /><br />
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
