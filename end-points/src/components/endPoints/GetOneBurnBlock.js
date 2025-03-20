@@ -5,13 +5,11 @@ import RoutesAndEndpoints from "./RoutesAndEndpoints";
 
 export default function GetOneBitcoinBlock({ fullBitcoinHash }) {
     
-    const API_PROXY_URL_ONE_BURN_BLOCK = RoutesAndEndpoints.ROUTE_ONE_BURN_BLOCK( fullBitcoinHash );
-
-    console.log("API_PROXY_URL_ONE_BURN_BLOCK: ", API_PROXY_URL_ONE_BURN_BLOCK);
-    
     const [container, setContainer] = useState(null);
 
     useEffect(() => {
+        const API_PROXY_URL_ONE_BURN_BLOCK = RoutesAndEndpoints.ROUTE_ONE_BURN_BLOCK( fullBitcoinHash );
+
         async function fetchData() {
             try {
                 const response = await fetch(API_PROXY_URL_ONE_BURN_BLOCK, {
@@ -36,7 +34,7 @@ export default function GetOneBitcoinBlock({ fullBitcoinHash }) {
         <div>
             <h2>One Bitcoin Block Data</h2>
             {container ? (
-                <pre>{container.toJson()}</pre>
+                <h6>{container.toJson()}</h6>
             ) : (
                 <p>Loading...</p>
             )}

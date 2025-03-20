@@ -1,17 +1,19 @@
 import { useEffect, useState } from "react";
 
-import BitcoinJsonContainer from "../coreContainers/BitcoinJsonContainer";
+import StacksBlock from "../coreContainers/StacksBlock";
 import RoutesAndEndpoints from "./RoutesAndEndpoints";
 
-export default function GetLastBitcoinBlock(fullBitcoinHash) {
-    const API_PROXY_URL = RoutesAndEndpoints.ROUTE_LAST_BURN_BLOCK;
+ export default function GetLastStacksBlock() {
     
     const [container, setContainer] = useState(null);
 
     useEffect(() => {
+
+        const API_LAST_STACKS_BLOCK_URL = RoutesAndEndpoints.ROUTE_LAST_STACKS_BLOCK;
+
         async function fetchData() {
             try {
-                const response = await fetch(API_PROXY_URL, {
+                const response = await fetch(API_LAST_STACKS_BLOCK_URL, {
                     headers: {
                       'Content-Type': 'text/javascript; charset=utf-8'
                     }
@@ -19,8 +21,8 @@ export default function GetLastBitcoinBlock(fullBitcoinHash) {
                 const jsonData = await response.json();
                 
                 // Fill the container with JSON data
-                const bitcoinJsonContainer = new BitcoinJsonContainer(jsonData);
-                setContainer(bitcoinJsonContainer);
+                const stacksBlock = new StacksBlock(jsonData);
+                setContainer(stacksBlock);
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
@@ -31,9 +33,9 @@ export default function GetLastBitcoinBlock(fullBitcoinHash) {
 
     return (
         <div>
-            <h2>Last Burn-block (Bitcoin) Data</h2>
+            <h2>Stacks Data</h2>
             {container ? (
-                <pre>{container.toJson()}</pre>
+                <h6>{container.toJson()}</h6>
             ) : (
                 <p>Loading...</p>
             )}
@@ -41,4 +43,3 @@ export default function GetLastBitcoinBlock(fullBitcoinHash) {
     );
 }
 
- 

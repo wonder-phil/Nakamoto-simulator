@@ -6,13 +6,12 @@ import RoutesAndEndpoints from "./RoutesAndEndpoints";
 
 export default function GetLastTenureTx() {
     
-    const API_PROXY_URL_LAST_TENURE_TX = RoutesAndEndpoints.ROUTE_LAST_TENURE_TX;
-
-    console.log("API_PROXY_URL_LAST_TENURE_TX: ", API_PROXY_URL_LAST_TENURE_TX);
-    
     const [container, setContainer] = useState(null);
 
     useEffect(() => {
+
+        const API_PROXY_URL_LAST_TENURE_TX = RoutesAndEndpoints.ROUTE_LAST_TENURE_TX;
+
         async function fetchData() {
             try {
                 const response = await fetch(API_PROXY_URL_LAST_TENURE_TX, {
@@ -37,7 +36,7 @@ export default function GetLastTenureTx() {
         <div>
             <h2>Last tenure transaction</h2>
             {container ? (
-                <pre>{container.toJson()}</pre>
+                <h6>{container.toJson()}</h6>
             ) : (
                 <p>Loading...</p>
             )}

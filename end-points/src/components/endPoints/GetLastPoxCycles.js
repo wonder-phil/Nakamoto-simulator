@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
 
-import StacksBlock from "../coreContainers/StacksBlock";
+import PoxCycle from "../coreContainers/PoxCycle";   
 import RoutesAndEndpoints from "./RoutesAndEndpoints";
 
- export default function GetLastStacksBlock() {
-    const API_LAST_STACKS_BLOCK_URL = RoutesAndEndpoints.ROUTE_LAST_STACKS_BLOCK;
-    console.log("API_LAST_STACKS_BLOCK_URL: ", API_LAST_STACKS_BLOCK_URL);
+ export default function PoxCycles() {
+
     const [container, setContainer] = useState(null);
 
     useEffect(() => {
+        const API_POX_CYCLE_URL = RoutesAndEndpoints.ROUTE_LAST_POX_CYCLE;
+        
         async function fetchData() {
             try {
-                const response = await fetch(API_LAST_STACKS_BLOCK_URL, {
+                const response = await fetch(API_POX_CYCLE_URL, {
                     headers: {
                       'Content-Type': 'text/javascript; charset=utf-8'
                     }
@@ -19,21 +20,21 @@ import RoutesAndEndpoints from "./RoutesAndEndpoints";
                 const jsonData = await response.json();
                 
                 // Fill the container with JSON data
-                const stacksBlock = new StacksBlock(jsonData);
-                setContainer(stacksBlock);
+                const poxCycles = new PoxCycle(jsonData);
+                setContainer(poxCycles);
             } catch (error) {
                 console.error("Error fetching data:", error);
             }
         }
 
         fetchData();
-    }, []); // Empty dependency array means it runs only once on mount
+    }, []);
 
     return (
         <div>
-            <h2>Stacks Data</h2>
+            <h2>Pox Data</h2>
             {container ? (
-                <pre>{container.toJson()}</pre>
+                <h6>{container.toJson()}</h6>
             ) : (
                 <p>Loading...</p>
             )}

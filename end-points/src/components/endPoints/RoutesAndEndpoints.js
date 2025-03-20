@@ -12,6 +12,6 @@ export default class RoutesAndEndpoints {
  
   static ROUTE_LAST_TENURE_TX = `${RoutesAndEndpoints.LOCAL_PROXY_URL}/tenure-tx/last`;
 
+  static ROUTE_LAST_BURN_BLOCK_TX = `${RoutesAndEndpoints.LOCAL_PROXY_URL}/burn-block-tx/last`;
  
-  
 }
