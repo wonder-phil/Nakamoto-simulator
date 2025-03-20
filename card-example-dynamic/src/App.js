@@ -1,6 +1,7 @@
 import './App.css';
 
 import DynamicCard from './components/DynamicCard';
+import DynamicCardCollapse from './components/DynamicCardAccordion';
 
 const container = 
 {
@@ -37,8 +38,11 @@ export default function App() {
   return (
     <div className="App">
       <header className="App-header">  
-        <DynamicCard props={container} /> 
+        
+        <DynamicCardCollapse props={container} /> 
       </header>
     </div>
   );
 }
+
+// <DynamicCard props={container} /> 
