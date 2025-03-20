@@ -2,7 +2,7 @@
 ## proxy to avoid CORS issues <br /> <br />
 
 > Contents of this repo <br />
->> **proxyJS.js** contains proxy code <br />
+>> **proxyJS.js** contains proxy code <br />  <br />
 
 
 > In a **terminal** <br />

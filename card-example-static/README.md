@@ -1,7 +1,9 @@
 
-# Nakamoto-simulator <br /> <br />
-## Card-example-static 
+# Nakamoto-simulator <br /> 
+## Card-example-static <br /> <br />
+
 ## [See the pdf file](https://github.com/wonder-phil/Nakamoto-simulator/blob/main/docs/card-static.pdf) <br /> <br />
+
 > Structure of this repo <br />
 >> **src** contains the main software components <br />
 >> **public** contains index.html and related files <br />
@@ -10,7 +12,7 @@
 
 > After cloning this repo: <br />
 > In a **terminal** <br />
->> cd nakamoto-simulator  <br /> 
+>> cd Nakamoto-simulator  <br /> 
 >> **cd card-example-static** <br />
 >> npm install <br />
 >> npm start <br />
