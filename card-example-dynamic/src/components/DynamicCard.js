@@ -6,8 +6,6 @@ function getLast20Chars(str) {
   return str.slice(-20);
 }
 
-const myHash="000000000000000000021befec5430136d47f2d7ca9e0b508a08693e82c18f63"
-
 export default function DynamicCard ({ props }) {
   const entries = Object.entries(props);
   console.log(entries);
@@ -27,7 +25,7 @@ export default function DynamicCard ({ props }) {
               aria-expanded={open}
               className="mb-2"
               >
-          {open ? <p>{getLast20Chars(myHash)}</p> :  <p>{myHash}</p>}
+          {open ? <p>{getLast20Chars(props['hash'])}</p> :  <p>{props['hash']}</p>}
           </Button>
           </li>
           <ul>
