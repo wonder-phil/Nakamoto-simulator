@@ -38,7 +38,7 @@ export default function App() {
   return (
     <div className="App">
       <header className="App-header">  
-        
+        { /* <DynamicCard props={container} /> */ }
         <DynamicCardCollapse props={container} /> 
       </header>
     </div>
