@@ -1,7 +1,7 @@
 import './App.css';
 
-import DynamicCard from './components/DynamicCard';
-import DynamicCardCollapse from './components/DynamicCardAccordion';
+import DynamicCardFull from './components/DynamicCardFull';
+import DynamicCardCollapsible from './components/DynamicCardCollapsible';
 
 const container = 
 {
@@ -38,8 +38,9 @@ export default function App() {
   return (
     <div className="App">
       <header className="App-header">  
-        { /* <DynamicCard props={container} /> */ }
-        <DynamicCardCollapse props={container} /> 
+        { /* <DynamicCardCollapsible props={container} />  */ }
+        
+        <DynamicCardFull props={container} />
       </header>
     </div>
   );

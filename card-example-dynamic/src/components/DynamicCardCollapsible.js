@@ -1,0 +1,84 @@
+import React, { useState } from "react";
+import { Card, Button, Collapse } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+
+function getLast20Chars(str) {
+  return str.slice(-20);
+}
+
+const splitMyEnt = (ent) => {
+  var myList =  Object.entries(ent);
+  const firstThree = myList.slice(0, 3);
+  const rest = myList.slice(3);
+  return [firstThree, rest];
+};
+
+function twoLists(entries) {
+  //console.log(entries);
+  var myList =  Object.entries(entries);
+  const firstThree = myList.slice(0, 3);
+  const rest = myList.slice(3);
+  return (
+    <ul>
+      {firstThree.map(([key, value]) => (
+          <li key={key}>
+              {key}: {JSON.stringify(value)}
+          </li>
+      ))}
+    </ul>
+  );
+};
+
+export default function DynamicCardCollapsible ({ props }) {
+  const entries = Object.entries(props);
+
+  const [open, setOpen] = useState(false);
+  const myList =  Object.entries(props);
+  const firstThree = myList.slice(0, 3);
+  const theRest = myList.slice(3);
+
+  return (
+
+    <div className="card custom-card border-primary mb-3">
+    <Card style={{ maxWidth: "700px", margin: "auto" }} className="container ms-0" >
+      <Card.Body>
+        <Card.Title><h3>BTC height: {props['height']}</h3></Card.Title>
+        <ul className="list-group list-group-flus no-bullets">
+          <li className="list-group-item text-primary">
+            <Button
+              onClick={() => setOpen(!open)}
+              aria-controls="collapse-text"
+              aria-expanded={open}
+              className="mb-2"
+              >
+              <h6>{open ? "Hash tail: " + getLast20Chars(props['hash']) : "Hash: " + props['hash']}</h6>
+          </Button>
+          </li>
+            <ul class="no-bullets">  <h6> 
+                {firstThree.map(([key, value]) => (
+                    <li key={key}>
+                        {key}: {JSON.stringify(value)}
+                    </li>
+                ))}
+                </h6>
+            </ul>
+            
+            <Collapse in={open}>
+              <div id="collapse-text">
+                {open ? <h6> 
+                {theRest.map(([key, value]) => (
+                      <li key={key}>
+                          {key}: {JSON.stringify(value)}
+                      </li>
+                  ))}
+                </h6> : <p>Loading ...</p>}
+              </div>
+        </Collapse>
+        </ul>
+      </Card.Body>
+    </Card>
+    </div>
+  );
+};
+
+
