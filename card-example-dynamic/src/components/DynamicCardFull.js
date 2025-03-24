@@ -2,14 +2,7 @@ import React, { useState } from "react";
 import { Card, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-function getLast20Chars(str) {
-  return str.slice(-20);
-}
-
 export default function DynamicCardFull ({ props }) {
-  const entries = Object.entries(props);
-  console.log(entries);
-
   const [open, setOpen] = useState(false);
 
   return (
@@ -24,7 +17,7 @@ export default function DynamicCardFull ({ props }) {
               aria-controls="collapse-text"
               aria-expanded={open}
               className="mb-2">
-              <h6>{open ? "Hash tail: " + getLast20Chars(props['hash']) 
+              <h6>{open ? "Hash tail: " + props['hash'].slice(-20)
                         : "Hash: " + props['hash']}</h6>
           </Button>
           </li>
