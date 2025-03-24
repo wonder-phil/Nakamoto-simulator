@@ -18,14 +18,14 @@ export default function DynamicCardFull ({ props }) {
       <Card.Body>
         <Card.Title><h3>Burn Block</h3></Card.Title>
         <ul className="list-group list-group-flus no-bullets">
-          <li class="list-group-item text-primary">{open ? "Hash tail: " : "Hash: "}
+          <li class="list-group-item text-primary">
             <Button
               onClick={() => setOpen(!open)}
               aria-controls="collapse-text"
               aria-expanded={open}
-              className="mb-2"
-              >
-          {open ? <p>{getLast20Chars(props['hash'])}</p> :  <p>{props['hash']}</p>}
+              className="mb-2">
+              <h6>{open ? "Hash tail: " + getLast20Chars(props['hash']) 
+                        : "Hash: " + props['hash']}</h6>
           </Button>
           </li>
           <ul className="list-group list-group-flus no-bullets">
