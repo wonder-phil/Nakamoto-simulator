@@ -1,0 +1,397 @@
+\documentclass[12pt]{article}
+\textwidth 15.4 cm
+\textheight 21.5 cm
+\topmargin 0.5cm
+\evensidemargin 2 cm
+\oddsidemargin 3 mm
+
+\newcommand{\qed}{\rule[-0.2ex]{0.3em}{1.4ex}}
+\newcommand{\out}[1]{\mbox{\bf {\sf Out}}({#1})}
+\newenvironment{Proof}%
+{\par\vspace{0.5ex}\noindent{\bf Proof:}\hspace{0.5em}}%
+{\nopagebreak
+\strut\nopagebreak
+\hspace{\fill}\qed\par\medskip\noindent}
+\newenvironment{proof}% lowercase version...
+{\par\vspace{0.5ex}\noindent{\bf Proof:}\hspace{0.5em}}%
+{\nopagebreak
+\strut\nopagebreak
+\hspace{\fill}\qed\par\medskip\noindent}
+\newenvironment{proofattempt}%
+{\par\vspace{0.5ex}\noindent{\bf Proof Attempt:}\hspace{0.5em}}%
+{\nopagebreak
+\strut\nopagebreak
+\hspace{\fill}\qed\par\medskip\noindent}
+\newtheorem{theorem}{Theorem}
+\newtheorem{prop}{Proposition}
+\newtheorem{property}{Property}
+\newtheorem{lemma}{Lemma}
+\newtheorem{fact}{Fact}
+\newtheorem{definition}{Definition}
+\newtheorem{corollary}{Corollary}
+\newtheorem{remark}{Remark}
+\newtheorem{observation}{Observation}
+\newtheorem{conjecture}{Conjecture}
+
+\newcommand{\support}{\mbox{\sf supp}}
+\newcommand{\OMS}{\mbox{$\bf \Omega_{S}$}}
+
+
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{color}
+\usepackage{circuitikz}
+\usepackage{listings}
+%\usepackage{tikz}
+
+\usepackage{listings}
+\usepackage{color}
+\usepackage{textcomp}
+
+\lstdefinelanguage{JavaScript}{
+  morekeywords=[1]{break, continue, delete, else, for, function, if, in,
+    new, return, this, typeof, var, void, while, with},
+  % Literals, primitive types, and reference types.
+  morekeywords=[2]{false, null, true, boolean, number, undefined,
+    Array, Boolean, Date, Math, Number, String, Object,new},
+  % Built-ins.
+  morekeywords=[3]{eval, parseInt, parseFloat, escape, unescape,let,var,const,await,async,try,catch,import,from,export},
+  morekeywords=[4]{className,h1,h2,div,header,Card.Text,Card.Body},
+  sensitive,
+  morecomment=[s]{/*}{*/},
+  morecomment=[l]//,
+  morecomment=[s]{/**}{*/}, % JavaDoc style comments
+  morestring=[b]',
+  morestring=[b]"
+}[keywords, comments, strings]
+
+% Requires package: color.
+\definecolor{mediumgray}{rgb}{0.3, 0.4, 0.4}
+\definecolor{mediumblue}{rgb}{0.0, 0.0, 0.8}
+\definecolor{forestgreen}{rgb}{0.13, 0.55, 0.13}
+\definecolor{darkviolet}{rgb}{0.58, 0.0, 0.83}
+\definecolor{royalblue}{rgb}{0.25, 0.41, 0.88}
+\definecolor{crimson}{rgb}{0.86, 0.8, 0.24}
+\definecolor{amber}{rgb}{1.0, 0.75, 0.0}
+\definecolor{cobalt}{rgb}{0.0, 0.28, 0.67}
+\definecolor{darkcandyapplered}{rgb}{0.64, 0.0, 0.0}
+
+\lstdefinestyle{JSES6Base}{
+  backgroundcolor=\color{white},
+  basicstyle=\ttfamily,
+  alsoletter={.},
+  breakatwhitespace=false,
+  breaklines=false,
+  captionpos=b,
+  columns=fullflexible,
+  commentstyle=\color{mediumgray}\upshape,
+  emph={},
+  emphstyle=\color{crimson},
+  extendedchars=true,  % requires inputenc
+  fontadjust=true,
+  frame=single,
+  identifierstyle=\color{black},
+  keepspaces=true,
+  keywordstyle=\color{mediumblue},
+  keywordstyle={[2]\color{darkviolet}},
+  keywordstyle={[3]\color{royalblue}},
+  keywordstyle={[4]\color{darkcandyapplered}},
+  numbers=left,
+  numbersep=5pt,
+  numberstyle=\tiny\color{black},
+  rulecolor=\color{black},
+  showlines=true,
+  showspaces=false,
+  showstringspaces=false,
+  showtabs=false,
+  stringstyle=\color{forestgreen},
+  tabsize=2,
+  title=\lstname,
+  upquote=true  % requires textcomp
+}
+
+\lstdefinestyle{JavaScript}{
+  language=JavaScript,
+  style=JSES6Base
+}
+\lstdefinestyle{ES6}{
+  language=ES6,
+  style=JSES6Base
+}
+
+\lstset{
+	language=JavaScript
+}
+
+
+\lstdefinelanguage{bash}{
+  keywords={cd, npm, npx,sudo, apt-get, ifconfig, mosquitto_pub, mosquitto_sub, ping},
+  basicstyle=\small,
+  alsoletter=?!-,
+  alsodigit=\$\%&*+./:<=>@^_~,
+  sensitive=false,
+  morecomment=[l]{\#},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]",
+  basicstyle=\small\ttfamily,
+  keywordstyle=\bf\ttfamily\color[rgb]{0,.3,.7},                                                                                                             
+  commentstyle=\color[rgb]{0.133,0.545,0.133},
+  stringstyle={\color[rgb]{0.75,0.49,0.07}},
+  upquote=true,
+  breaklines=true,
+  breakatwhitespace=true,
+  literate=*{`}{{`}}{1},
+  keywords=[2]{myRed},
+  keywordstyle=[2]\color{red}
+}
+
+
+\usepackage{textcomp}
+\usepackage{booktabs}
+
+
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\cov}{\sf cov}
+ 
+\newcommand{\IR}{{\rm\hbox{I\kern-.15em R}}}
+\newcommand{\reals}{{\rm\hbox{I\kern-.15em R}}}
+\newcommand{\IN}{{\rm\hbox{I\kern-.15em N}}}
+\newcommand{\IZ}{{\sf\hbox{Z\kern-.40em Z}}}
+\newcommand{\id}{\mbox{\bf \em id}}
+\newcommand{\lo}{\mbox{\bf \em loc}}
+\newcommand{\E}{\mbox{\sf {I\kern-.15em E}}}
+\newcommand{\F}{\mbox{\bf F}}
+\newcommand{\Var}{\mbox{\bf Var}}
+\newcommand{\Prob}{\mbox{\sf \hbox{I\kern-.15em P}}}
+\newcommand{\g}{\mbox{\bf \em g}}
+\newcommand{\SeqRank}{\mbox{\bf \em SequentialRank}}
+
+\newcommand{\vat}{\mbox{\scshape \tiny VAT}}
+\newcommand{\emm}{\mbox{\scshape \tiny EM}}
+\newcommand{\ram}{\mbox{\scshape \tiny RAM}}
+\newcommand{\mNC}{\ensuremath{\mbox{m}{\cal NC}^{1}}}
+
+\newcommand{\ta}{\mbox{\color{blue} T}}
+\newcommand{\h}{\mbox{\color{red} H}}
+
+%
+%
+%
+%\lstset{language=Scheme} 
+%
+%
+%
+
+
+\begin{document}
+\title{A Dynamic {\bf Card} in React Bootstrap}
+\author{
+Phillip G. Bradford\thanks{phillip.bradford@uconn.edu, phillip.g.bradford@gmail.com,
+{\sc University of Connecticut, Department of Computing, Stamford, CT USA}}
+}
+
+\date{\small\today}
+
+\maketitle
+
+%
+%
+%
+\begin{abstract}
+The Card component in React bootstrap can be made dynamic.
+Card components play an important role for our block explorer.
+This dynamic card uses the {\em useState} function from {\em React hooks}.
+\end{abstract}
+
+%
+%
+%
+%
+\section{Basic Dynamic card component}
+\label{Basic Card component}
+
+
+To create a basic Card component, do the next steps.
+
+\begin{enumerate}
+
+\item
+\lstinline[language=bash]|npx create-react-app card-example-dynamic|
+
+\item
+\lstinline[language=bash]|cd card-example-dynamic|
+
+
+In Listing~\ref{updateApp.js}, we update the {\em App.js} file in the \lstinline[language=bash]|src| directory.
+We have truncated the hash values to fit on the page.
+
+\begin{lstlisting}[label=updateApp.js,style=JSES6Base, caption={Update app.js in the {\em src} folder}]
+import './App.css';
+
+import DynamicCard from './components/DynamicCard';
+
+const container = 
+{
+  "canonical": true,
+  "height": 733786,
+  "hash": "0x456ff10c1f3d870697fe8ea80ce27f01756ba4875515c47d...",
+  "block_time": 1741441821,
+  "block_time_iso": "2025-03-08T13:50:21.000Z",
+  "tenure_height": 187940,
+  "index_block_hash": "0xa9900a4323c92ae587f8e55622b8d46cb991...",
+  "parent_block_hash": "0xfeb3d1dd27e2555ea372669c9547b7887d3...",
+  "burn_block_time": 1741441223,
+  "burn_block_time_iso": "2025-03-08T13:40:23.000Z",
+  "burn_block_hash": "0x0000000000000000000079a14b7bcddfcb0c1...",
+  "burn_block_height": 886865,
+  "miner_txid": "0x0813472654ee73ed1686c1a72a3e7d28c655ded29d...",
+  "execution_cost_read_count": 0,
+  "execution_cost_read_length": 0,
+  "execution_cost_runtime": 0,
+  "execution_cost_write_count": 0,
+  "execution_cost_write_length": 0,
+  "txs": [
+    "0xc2f9bb6a6a73e08ce38da86757cd866e54381c2bde43141e70ab52...",
+    "0xd0c97bf834e9e87e6e0811a1e7fb4ccc9dbf1fc3ebccee83ab2ebc..."
+  ],
+  "parent_microblock_hash": "",
+  "parent_microblock_sequence": -1,
+  "microblocks_accepted": [],
+  "microblocks_streamed": [],
+  "microblock_tx_count": {}
+};
+
+export default function App() {
+  return (
+    <div className="App">
+      <header className="App-header">  
+        <DynamicCard props={container} /> 
+      </header>
+    </div>
+  );
+}
+\end{lstlisting}
+
+\item
+\lstinline[language=bash]|npm install react bootstrap react-bootstrap|
+
+\item Replace the code in App.js in the \lstinline[language=bash]|src| directory with the code
+in Listing~\ref{updateApp.js}.
+
+\end{enumerate}
+
+Next we generate the component \lstinline[style=JSES6Base]|<DynamicCardFull />|.
+
+\begin{enumerate}
+
+  \item Create a subdirectory \lstinline[language=bash]|components| of the \lstinline[language=bash]|src| directory.
+  
+  \item Create a file \lstinline[language=bash]|BlockCard.js| in the \lstinline[language=bash]|src/components| directory.
+
+  \item Put the content of Listing~\ref{subCardListing} in \lstinline[language=bash]|DynamicCardFull.js|.
+
+\end{enumerate}
+
+
+This code will host a {\em DynamicCardFull} in {\em App.js} on line~7. 
+Specifically, 
+Add \lstinline[style=JSES6Base]|<DynamicCardFull />| between \lstinline[style=JSES6Base]|<header className="App-header">|  and  \lstinline[style=JSES6Base]|</header>|\\
+
+This card is dynamic.
+It is dynamic by storing {\em state} based on\\
+\lstinline[style=JSES6Base]|const [open, setOpen] = useState(false);|\\
+This is from {\em React hooks}.
+
+
+Update \lstinline[style=JSES6Base]|<DynamicCardFull />| with the following 
+properties in the {\em container} object. 
+
+{\em height="888217"}, \\
+{\em hash="000000000000000000008567ffc2eb86897fd8db31b2dd0b71db42684178a0dd"}, 
+etc.\\
+
+In Listing~\ref{updateApp.js}, the basic updated version is,\\
+
+\begin{lstlisting}
+  <DynamicCardFull props={container}  />
+\end{lstlisting}
+
+%
+%
+\pagebreak
+%
+%
+%
+\begin{lstlisting}[label=subCardListing,style=JSES6Base, caption={Basic Dynamic Card from React-bootstrap}]
+  import React, { useState } from "react";
+  import { Card, Button } from "react-bootstrap";
+  import "bootstrap/dist/css/bootstrap.min.css";
+  
+  export default function DynamicCardFull ({ props }) {
+    const entries = Object.entries(props);  
+    const [open, setOpen] = useState(false);
+  
+    return (
+     <div className="card custom-card border-primary mb-3">
+        <Card style={{ maxWidth: "700px", margin: "auto" }} 
+              className="container ms-0" >
+        <Card.Body>
+          <Card.Title><h3>Burn Block</h3></Card.Title>
+          <ul className="list-group list-group-flus no-bullets">
+            <li class="list-group-item text-primary">
+              <Button
+                onClick={() => setOpen(!open)}
+                aria-controls="collapse-text"
+                aria-expanded={open}
+                className="mb-2"
+                >
+            </Button>
+              <h6>{open ? "Hash tail: " + props['hash'].slice(-20) 
+                        : "Hash: " + props['hash']}</h6>
+            </li>
+            <ul className="list-group list-group-flus no-bullets">
+                  {Object.entries(props).map(([key, value]) => (
+                      <li key={key}>
+                          <h6>{key}: {JSON.stringify(value)}</h6>
+                      </li>
+                  ))}
+              </ul>
+          </ul>
+        </Card.Body>
+      </Card>
+      </div>
+    );
+  };
+\end{lstlisting}
+
+Listing~\ref{subCardListing} shows a basic {\em dyamic} card from React-bootstrap.
+This is in~ the file~\lstinline[language=bash]|DyanmicCardFull.js| in the \lstinline[language=bash]|src/components| directory.
+
+
+
+
+%
+%
+%
+%
+\begin {thebibliography}{99}
+%
+
+
+
+\bibitem{Blake} Ryan J. Blake:
+	      {\em Mastering Bootstrap 5},
+	     Beginners Handbook,
+       2024.
+
+       
+\bibitem{cards} React Bootstrap:
+        {\em React Bootstrap Cards},\\
+        {\em https://react-bootstrap.netlify.app/docs/components/cards/ },
+       Accessed: 2025-03-15.
+
+\end {thebibliography}
+\end{document}
+
+%
