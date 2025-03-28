@@ -1,7 +1,7 @@
 
 # Nakamoto-simulator <br /> <br />
-## Card-example-dynamic
-## [See the pdf file](https://github.com/wonder-phil/Nakamoto-simulator/blob/main/docs/card-dynamic.pdf) <br /> <br />
+## Card-example-dynamic-w-endpoints
+## [See the pdf file](https://github.com/wonder-phil/Nakamoto-simulator/blob/main/docs/card-dynamic-endpoint.pdf) <br /> <br />
 > Structure of this repo <br />
 >> **src** contains the main software components <br />
 >> **public** contains index.html and related files <br />
@@ -11,7 +11,7 @@
 > After cloning this repo: <br />
 > In a **terminal** <br />
 >> cd Nakamoto-simulator  <br /> 
->> **cd card-example-dynamic** <br />
+>> **cd card-example-dynamic-w-endpoints** <br />
 >> npm install <br />
 >> npm start <br /><br />
 
