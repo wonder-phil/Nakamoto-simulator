@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import { Card, Button, Collapse } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+/*
+  Burn block example
+*/
 
 export default function DynamicCardCollapsible ({ props }) {
 
