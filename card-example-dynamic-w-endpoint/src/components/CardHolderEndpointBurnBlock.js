@@ -18,10 +18,8 @@ export default function CardHolderEndpointBurnBlock(fullBitcoinHash) {
                     }
                   });
                 const jsonData = await response.json();
-                //console.log(jsonData);
                 
                 const burnBlockContainer = new BurnBlockContainer(jsonData['results'][0]);
-                console.log(burnBlockContainer.toJson());
                 setContainer(burnBlockContainer.getData());
             } catch (error) {
                 console.error("Error fetching data:", error);
