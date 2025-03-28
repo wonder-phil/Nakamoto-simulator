@@ -1,10 +1,11 @@
 import './App.css';
 
-import DynamicCardFull from './components/DynamicCardFull';
 import DynamicCardCollapsible from './components/DynamicCardCollapsible';
 
-const container = 
-{
+import BurnBlockContainer from './components/coreContainers/BurnBlockContainer';
+import ErrorBoundary from './components/errorBoundary/ErrorBoundary';
+
+const container = new BurnBlockContainer({
   "canonical": true,
   "height": 733786,
   "hash": "0x456ff10c1f3d870697fe8ea80ce27f01756ba4875515c47d7e6fcdf5ea0896cb",
@@ -32,18 +33,17 @@ const container =
   "microblocks_accepted": [],
   "microblocks_streamed": [],
   "microblock_tx_count": {}
-};
+});
 
 export default function App() {
   return (
     <div className="App">
       <header className="App-header">  
-        { /* <DynamicCardCollapsible props={container} />  */ }
-        
-        <DynamicCardFull props={container} />
+        <ErrorBoundary>
+          <DynamicCardCollapsible props={container.getData()} />  
+          { /*<DynamicCardFull props={container} /> */ }
+        </ErrorBoundary>
       </header>
     </div>
   );
 }
-
-// <DynamicCard props={container} /> 
