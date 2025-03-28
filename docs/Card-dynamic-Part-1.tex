@@ -185,7 +185,7 @@
 
 
 \begin{document}
-\title{A Dynamic {\bf Card} in React Bootstrap}
+\title{A Dynamic {\bf Card} in React Bootstrap - Part 1}
 \author{
 Phillip G. Bradford\thanks{phillip.bradford@uconn.edu, phillip.g.bradford@gmail.com,
 {\sc University of Connecticut, Department of Computing, Stamford, CT USA}}
@@ -202,17 +202,18 @@ Phillip G. Bradford\thanks{phillip.bradford@uconn.edu, phillip.g.bradford@gmail.
 The Card component in React bootstrap can be made dynamic.
 Card components play an important role for our block explorer.
 This dynamic card uses the {\em useState} function from {\em React hooks}.
+A stacks block is featured here.
 \end{abstract}
 
 %
 %
 %
 %
-\section{Basic Dynamic card component}
+\section{Stacks block dynamic card component}
 \label{Basic Card component}
 
 
-To create a basic Card component, do the next steps.
+To create a basic Card component for a {\em Stacks block}, do the next steps.
 
 \begin{enumerate}
 
@@ -226,7 +227,7 @@ To create a basic Card component, do the next steps.
 In Listing~\ref{updateApp.js}, we update the {\em App.js} file in the \lstinline[language=bash]|src| directory.
 We have truncated the hash values to fit on the page.
 
-\begin{lstlisting}[label=updateApp.js,style=JSES6Base, caption={Update app.js in the {\em src} folder}]
+\begin{lstlisting}[label=updateApp.js,style=JSES6Base, caption={Update app.js in the {\em src} folder for a Stacks block}]
 import './App.css';
 
 import DynamicCard from './components/DynamicCard';
@@ -266,7 +267,7 @@ export default function App() {
   return (
     <div className="App">
       <header className="App-header">  
-        <DynamicCard props={container} /> 
+        <DynamicCardFull props={container} /> 
       </header>
     </div>
   );
@@ -323,7 +324,7 @@ In Listing~\ref{updateApp.js}, the basic updated version is,\\
 %
 %
 %
-\begin{lstlisting}[label=subCardListing,style=JSES6Base, caption={Basic Dynamic Card from React-bootstrap}]
+\begin{lstlisting}[label=subCardListing,style=JSES6Base, caption={Basic Dynamic Card for a Stacks block}]
   import React, { useState } from "react";
   import { Card, Button } from "react-bootstrap";
   import "bootstrap/dist/css/bootstrap.min.css";
@@ -365,6 +366,7 @@ In Listing~\ref{updateApp.js}, the basic updated version is,\\
 \end{lstlisting}
 
 Listing~\ref{subCardListing} shows a basic {\em dyamic} card from React-bootstrap.
+This card holds a Stacks block.
 This is in~ the file~\lstinline[language=bash]|DyanmicCardFull.js| in the \lstinline[language=bash]|src/components| directory.
 
 
