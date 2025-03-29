@@ -9,7 +9,7 @@ export default function DynamicCardFull ({ props }) {
    <div className="card custom-card border-primary mb-3">
       <Card style={{ maxWidth: "700px", margin: "auto" }} className="container ms-0" >
       <Card.Body>
-        <Card.Title><h3>Burn Block</h3></Card.Title>
+        <Card.Title><h3>{props['card_title']}</h3></Card.Title>
         <ul className="list-group list-group-flus no-bullets">
           <li class="list-group-item text-primary">
             <Button
