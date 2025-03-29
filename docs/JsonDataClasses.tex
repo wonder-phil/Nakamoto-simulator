@@ -177,7 +177,12 @@ Phillip G. Bradford\thanks{phillip.bradford@uconn.edu, phillip.g.bradford@gmail.
 %
 %
 \begin{abstract}
-These notes discuss a flexible Javascript JSON data class: \lstinline|JsonContainer|.
+These notes discuss a Javascript JSON data class: \lstinline|JsonContainer|.
+ALl of our data-classes that store data from the APIs inherit from  \lstinline|JsonContainer|.
+All of these data classes use the class \lstinline|CardText.js| to get their header-text.
+Specifically, \lstinline|CardText.js| is a single-source for the cards header-text.
+THe Stacks APIs all have a single-source for the endpoints we use.
+This source is stored in the file \lstinline|RoutesAndEndpoints.js|.
 \end{abstract}
 
 %
@@ -187,14 +192,47 @@ These notes discuss a flexible Javascript JSON data class: \lstinline|JsonContai
 \section{JsonContainer class}
 \label{JsonContainer class}
 
-This class is designed to be inherited from.
-Such classes are common and similar or almost identical classes can be found all over.
+The class \lstinline|JsonContainer| is the base-class for our data classes:
+
+\begin{enumerate}
+
+\item BurnBlockContainer
+
+\item PoxCycle
+
+\item StacksBlock
+
+\item TenureTxContainer
+
+\end{enumerate}
+
+The class \lstinline|JsonContainer| is in Listing~\ref{JsonContainer}.
 
 %
 %
 \vspace{0.2in}
 %
 %
+
+\begin{lstlisting}[label=CardText,style=JSES6Base, caption={The single-source of text for cards on the screen}]
+export default class CardText {
+  static CARD_TITLE_BURN_BLOCK = "Burn Block";
+  static CARD_TITLE_POX_BLOCK = "Pox Block";
+  static CARD_TITLE_STACKS_BLOCK = "Stacks Block";
+  static CARD_TITLE_TENURE_BLOCK = "Tenure Transaction";
+}
+\end{lstlisting}
+
+The class \lstinline|CardText| in 
+Listing~\ref{CardText} can be extended to hold other fields besides these \lstinline|CARD_TITLE...|s.
+A key reaon for storing all card text in one common file is to make translation and updating easy.
+
+%
+%
+\vspace{0.2in}
+%
+%
+
 
 \begin{lstlisting}[label=JsonContainer,style=JSES6Base, caption={JsonContainer class}]
 class JsonContainer {
@@ -213,69 +251,45 @@ class JsonContainer {
         return { ...this._data };
     }
 
-    getField(key, defaultValue = null) {
-        return this._data.hasOwnProperty(key) 
-		          ? this._data[key] : defaultValue;
-    }
-
-    setField(key, value) {
-        this._data[key] = value;
-    }
-
-    hasField(key) {
-        return this._data.hasOwnProperty(key);
-    }
-
     toJson() {
         return JSON.stringify(this._data, null, 2);
     }
 }
 \end{lstlisting}
 
-
-
 %
 %
 \vspace{0.2in}
 %
 %
 
+Each class that inherits from the class \lstinline|JsonContainer| has a constructor as seen in Listing~\ref{BurnBlockContainer-constructor}.
+
+
+
 %
 %
 %
-\begin{lstlisting}[label=JsonContainer-example,style=JSES6Base, caption={JsonContainer example}]
-const apiResponse = {
-    id: 123,
-    name: "Sample Data",
-    attributes: {
-        color: "red",
-        size: "large"
-    }
-};
-
-// Initialize container
-const container = new JsonContainer(apiResponse);
-
-console.log(container.getField("name"));
-console.log(container.getField("unknown", "Default Value"));
-
-container.setField("status", "active");
-console.log(container.getData());
-
-// Merge additional data
-container.mergeData({ price: 99.99, available: true });
-
-console.log(container.toJson());
+\begin{lstlisting}[label=BurnBlockContainer-constructor,style=JSES6Base, caption={BurnBlockContainer inheriting from JsonContainer}]
+export default class BurnBlockContainer extends JsonContainer {
+   
+        constructor(data = {}) {
+            super(data);
+            this.setData({...data, 
+				"card_title" : CardText.CARD_TITLE_BURN_BLOCK});
+        }
+}
 \end{lstlisting}
 
+The \lstinline|data| passed into the class \lstinline|BurnBlockContainer| may be modified to surpress some fields from being
+presented.
+This will be on a block-type by block-type basis.
 
 %
 %
 \vspace{0.2in}
 %
 %
-
-Listing~\ref{JsonContainer-example} shows a basic implementation of this the class JsonContainer.
 
 %
 %
