@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-import BitcoinJsonContainer from "../coreContainers/BitcoinJsonContainer";
+import BurnBlockContainer from "../coreContainers/BurnBlockContainer"; 
 import RoutesAndEndpoints from "./RoutesAndEndpoints";
 
 export default function GetLastBitcoinBlock(fullBitcoinHash) {
@@ -18,9 +18,8 @@ export default function GetLastBitcoinBlock(fullBitcoinHash) {
                   });
                 const jsonData = await response.json();
                 
-                // Fill the container with JSON data
-                const bitcoinJsonContainer = new BitcoinJsonContainer(jsonData);
-                setContainer(bitcoinJsonContainer);
+                const burnBlockContainer = new BurnBlockContainer(jsonData);
+                setContainer(burnBlockContainer);
             } catch (error) {
                 console.error("Error fetching data:", error);
             }

@@ -1,7 +1,7 @@
 import { React } from 'react';
 import { useEffect, useState } from "react";
 
-import TenureTxContainer from "../coreContainers/BitcoinJsonContainer";
+import TenureTxContainer from "../coreContainers/TenureTxContainer";
 import RoutesAndEndpoints from "./RoutesAndEndpoints";
 
 export default function GetLastTenureTx() {

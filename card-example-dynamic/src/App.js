@@ -1,6 +1,7 @@
 import './App.css';
 
 import DynamicCardCollapsible from './components/DynamicCardCollapsible';
+import DynamicCardFull from './components/DynamicCardFull';
 
 import BurnBlockContainer from './components/coreContainers/BurnBlockContainer';
 import ErrorBoundary from './components/errorBoundary/ErrorBoundary';
@@ -36,12 +37,14 @@ const container = new BurnBlockContainer({
 });
 
 export default function App() {
+  
   return (
     <div className="App">
       <header className="App-header">  
         <ErrorBoundary>
-          <DynamicCardCollapsible props={container.getData()} />  
-          { /*<DynamicCardFull props={container} /> */ }
+          <DynamicCardCollapsible props={container.getData()} />
+          {/* <DynamicCardCollapsible props={container.getData()} />  *}
+          { /* <DynamicCardFull props={container.getData()} /> */ }
         </ErrorBoundary>
       </header>
     </div>
