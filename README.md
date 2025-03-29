@@ -3,7 +3,7 @@
 > Structure of this repo <br />
 >> **Architecture** contains architecture documents <br />
 >> [**card-example-dynamic**](./card-example-dynamic/README.md) contains a basic dynamic card <br />
->> [**card-example-dynamic-w-endpoint**](./card-example-dynamic-w-endpoin/README.md) contains a basic dynamic card <br />
+>> [**card-example-dynamic-w-endpoint**](./card-example-dynamic-w-endpoint/README.md) contains a basic dynamic card <br />
 >> [**card-example-static**](./card-example-static/README.md) contains a basic static card <br />
 >> [**docs**](./docs/) contains documents describing key components  <br />
 >> [**end-points**](./end-points/README.md) contains a end points we will lever for our block_explorer <br />
