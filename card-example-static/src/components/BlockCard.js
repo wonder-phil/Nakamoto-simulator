@@ -11,15 +11,15 @@ export default function BlockCard(
 ) {
 
   return (
-    <Card className="border border-white text-start p-3" 
+    <Card className="border border-white small-text text-start p-3"
            style={{ width: '30rem' }}>
         <Card.Body>
         <Card.Text>
-            <p class="text-start">{hash}</p>
-            <p class="text-start">{height}</p>
-            <p class="text-start">{block_time_iso}</p>
-            <p class="text-start">{burn_block_hash}</p> 
-            <p class="text-start">{burn_block_height}</p>
+            <p className="text-start">Hash: {hash}</p>
+            <p className="text-start">Hight: {height}</p>
+            <p className="text-start">Date: {block_time_iso}</p>
+            <p className="text-start">Burn block hash: {burn_block_hash}</p> 
+            <p className="text-start">Burn block height: {burn_block_height}</p>
         </Card.Text>
         </Card.Body>
     </Card>

@@ -11,6 +11,10 @@
   border: 3px solid white;
 }
 
+.small-text {
+  font-size: 12px;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

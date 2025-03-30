@@ -185,7 +185,7 @@
 
 
 \begin{document}
-\title{A Dynamic Card using a REST endpoint}
+\title{A Dynamic {\bf Card} in React Bootstrap  - Part 2}
 \author{
 Phillip G. Bradford\thanks{phillip.bradford@uconn.edu, phillip.g.bradford@gmail.com,
 {\sc University of Connecticut, Department of Computing, Stamford, CT USA}}
@@ -199,21 +199,30 @@ Phillip G. Bradford\thanks{phillip.bradford@uconn.edu, phillip.g.bradford@gmail.
 %
 %
 \begin{abstract}
-A card component is filled with data from a REST endpoint.
-This card component example uses a burn block from the Stacks chain.
+The Nakamoto-simulator dynamic card component uses a number of 
+interesting features from React-bootstrap.
+This dynamic card uses the {\em useState} function from {\em React hooks}.
 \end{abstract}
 
 %
 %
 %
 %
-\section{A dynamic card component and a REST endpoint}
+
+%
+%
+\section{A dynamic card design}
 \label{burn block dynamic card}
 
 
 Listing~\ref{DynamicCardCollapsible} shows a basic React hook \lstinline|useState|.
 The hook \lstinline|useState| remembers state through the life of the function \lstinline|DynamicCardCollapsible|.
 
+%
+%
+\vspace{0.2in}
+%
+%
 
 \begin{lstlisting}[label=DynamicCardCollapsible,style=JSES6Base, caption={Dynamic card}]
   export default function DynamicCardCollapsible ({ props }) {
@@ -226,9 +235,11 @@ The hook \lstinline|useState| remembers state through the life of the function \
   return (
 
     <div className="card custom-card border-primary mb-3">
-    <Card style={{ maxWidth: "700px", margin: "auto" }} className="container ms-0" >
+    <Card style={{ maxWidth: "700px", margin: "auto" }} 
+		  className="container ms-0" >
       <Card.Body>
-        <Card.Title><h3>{props['card_title']},  height: {props['height']}</h3></Card.Title>
+        <Card.Title><h3>{props['card_title']}</h3>
+		</Card.Title>
         <ul className="list-group list-group-flus no-bullets">
           <li className="list-group-item text-primary">
             <Button
@@ -237,13 +248,16 @@ The hook \lstinline|useState| remembers state through the life of the function \
               aria-expanded={open}
               className="mb-2"
               >
-              <h6>{open ? "Hash: " + props['hash'] :  "Hash tail: " + props['hash'].slice(-20) }</h6>
+              <h6>{open ? "Hash: " + props['hash'] :  
+			              "Hash tail: " + props['hash'].slice(-20) }
+			  </h6>
           </Button>
 		  
 		   <...>
 		  );
 };
 \end{lstlisting}
+
 
 %
 %
