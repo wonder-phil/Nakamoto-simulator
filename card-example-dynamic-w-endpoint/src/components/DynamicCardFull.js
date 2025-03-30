@@ -14,8 +14,6 @@ export default function DynamicCardFull ({ props }) {
           <li class="list-group-item text-primary">
             <Button
               onClick={() => setOpen(!open)}
-              aria-controls="collapse-text"
-              aria-expanded={open}
               className="mb-2">
               <h6>{open ? "Hash: " + props['hash'] :  "Hash tail: " + props['hash'].slice(-20) }</h6>
           </Button>

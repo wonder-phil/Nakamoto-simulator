@@ -20,8 +20,6 @@ export default function DynamicCardCollapsible ({ props }) {
           <li className="list-group-item text-primary">
             <Button
               onClick={() => setOpen(!open)}
-              aria-controls="collapse-text"
-              aria-expanded={open}
               className="mb-2"
               >
               <h6>{open ? "Hash: " + props['hash'] :  "Hash tail: " + props['hash'].slice(-20) }</h6>

@@ -216,7 +216,7 @@ This dynamic card uses the {\em useState} function from {\em React hooks}.
 
 
 Listing~\ref{DynamicCardCollapsible} shows a basic React hook \lstinline|useState|.
-The hook \lstinline|useState| remembers state through the life of the function \lstinline|DynamicCardCollapsible|.
+The hook \lstinline|useState| remembers state through the life of the function~\lstinline|DynamicCardCollapsible|.
 
 %
 %
@@ -239,13 +239,11 @@ The hook \lstinline|useState| remembers state through the life of the function \
 		  className="container ms-0" >
       <Card.Body>
         <Card.Title><h3>{props['card_title']}</h3>
-		</Card.Title>
+        </Card.Title>
         <ul className="list-group list-group-flus no-bullets">
           <li className="list-group-item text-primary">
             <Button
               onClick={() => setOpen(!open)}
-              aria-controls="collapse-text"
-              aria-expanded={open}
               className="mb-2"
               >
               <h6>{open ? "Hash: " + props['hash'] :  
@@ -258,6 +256,78 @@ The hook \lstinline|useState| remembers state through the life of the function \
 };
 \end{lstlisting}
 
+
+%
+%
+\vspace{0.2in}
+%
+%
+
+An explanation of some highlights from in Listing~\ref{DynamicCardCollapsible}.
+
+\begin{enumerate}
+
+\item
+
+The line 
+\begin{lstlisting}
+const [open, setOpen] = useState(false);
+\end{lstlisting}
+initializes the state \lstinline|open| to \lstinline|false| the first this React hooks function is called.
+The state \lstinline|open| should only be updated by the accompanying function \lstinline|setOpen|.
+
+
+\item 
+The line 
+\begin{lstlisting}
+onClick={() => setOpen(!open)}
+\end{lstlisting}
+inside the \lstinline|<button> ... </button>| tags toggles the state \lstinline|open| in each button click.
+
+
+\item
+The lines 
+\begin{lstlisting}
+   <h6>{open ? "Hash: " + props['hash'] :  
+               "Hash tail: " + props['hash'].slice(-20) }
+   </h6>
+\end{lstlisting}
+outputs \lstinline|"Hash: " + props['hash']| when \lstinline|open| is \lstinline|true| and\\
+outputs  \lstinline|"Hash tail: " + props['hash'].slice(-20|\\ when \lstinline|open| is \lstinline|false|.
+
+
+\item
+The lines in Listing~\ref{Collapse} are just below the button in the \lstinline|DynamicCardCollapsible| component.
+This react-bootstrap \lstinline|<Collapse in={open}>| component collapses when \lstinline|open| is \lstinline|true| and
+opens when \lstinline|open| is \lstinline|false|.
+
+\item
+THe lines
+\begin{lstlisting}
+theRest.map(([key, value]) => (
+  <li key={key}>
+    {key}: {JSON.stringify(value)}
+  </li>
+))}
+\end{lstlisting}
+is an array method that runs the anonymous function over all elements in its array \lstinline|theRest|.
+
+\end{enumerate}
+
+
+\begin{lstlisting}[label=Collapse,style=JSES6Base, caption={Collapible card component}]
+	<Collapse in={open}>
+              <div id="collapse-text">
+                {open ? <h6> 
+                {theRest.map(([key, value]) => (
+                      <li key={key}>
+                          {key}: {JSON.stringify(value)}
+                      </li>
+                  ))}
+                </h6> : <p>Loading ...</p>}
+              </div>
+        </Collapse>
+\end{lstlisting}
 
 %
 %

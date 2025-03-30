@@ -10,6 +10,7 @@
 >> **package.json** contains key libraries <br />
 <br /> <br />
 
+> git clone https://github.com/wonder-phil/Nakamoto-simulator.git <br /><br />
 > After cloning this repo: <br />
 > In a **terminal** <br />
 >> cd Nakamoto-simulator  <br /> 
