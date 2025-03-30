@@ -207,43 +207,101 @@ This card component example uses a burn block from the Stacks chain.
 %
 %
 %
-\section{A dynamic card component and a REST endpoint}
-\label{burn block dynamic card}
+\section{Loading data into a dynamic card}
+\label{Loading data into a dynamic card}
 
+The levels of abstraction from 
 
-Listing~\ref{DynamicCardCollapsible} shows a basic React hook \lstinline|useState|.
-The hook \lstinline|useState| remembers state through the life of the function \lstinline|DynamicCardCollapsible|.
+\begin{itemize}
 
+\item
+\lstinline|<CardHolderEndpointBurnBlock />| to 
 
-\begin{lstlisting}[label=DynamicCardCollapsible,style=JSES6Base, caption={Dynamic card}]
-  export default function DynamicCardCollapsible ({ props }) {
+\item
+leveraging  \lstinline|CardHolderEndpointBurnBlock|
 
-  const [open, setOpen] = useState(false);
-  const myList =  Object.entries(props);
-  const firstThree = myList.slice(0, 3);
-  const theRest = myList.slice(3);
+\item
+carrying data in a 
+\lstinline|BurnBlockContainer|
 
-  return (
+\end{itemize}
 
-    <div className="card custom-card border-primary mb-3">
-    <Card style={{ maxWidth: "700px", margin: "auto" }} className="container ms-0" >
-      <Card.Body>
-        <Card.Title><h3>{props['card_title']},  height: {props['height']}</h3></Card.Title>
-        <ul className="list-group list-group-flus no-bullets">
-          <li className="list-group-item text-primary">
-            <Button
-              onClick={() => setOpen(!open)}
-              aria-controls="collapse-text"
-              aria-expanded={open}
-              className="mb-2"
-              >
-              <h6>{open ? "Hash: " + props['hash'] :  "Hash tail: " + props['hash'].slice(-20) }</h6>
-          </Button>
-		  
-		   <...>
-		  );
-};
+\noindent
+are designed to maximize flexibility. 
+This allows us to easily create new cards when we want them.
+
+\begin{lstlisting}
+
 \end{lstlisting}
+
+Listing~\ref{CardHolderEndpointBurnBlock} shows a basic React hook \lstinline|useEffect|.
+The hook \lstinline|useEffect| creates side-effects during the loading of the function \lstinline|CardHolderEndpointBurnBlock|.
+
+\begin{lstlisting}[label= CardHolderEndpointBurnBlock,style=JSES6Base, caption={Dynamic card}]
+import { useEffect, useState } from "react";
+
+import RoutesAndEndpoints from "./endPoints/RoutesAndEndpoints";
+import BurnBlockContainer from "./coreContainers/BurnBlockContainer";
+import DynamicCardCollapsible from "./DynamicCardCollapsible";
+
+export default function CardHolderEndpointBurnBlock() {
+    
+    const [container, setContainer] = useState(null);
+
+    useEffect(() => {
+        const API_PROXY_URL = RoutesAndEndpoints.ROUTE_LAST_BURN_BLOCK;
+        async function fetchData() {
+            try {
+                const response = await fetch(API_PROXY_URL, {
+                    headers: { 'Content-Type': 
+					            'text/javascript; charset=utf-8'  }
+                  });
+                const jsonData = await response.json();
+                
+                const burnBlockContainer = 
+				         new BurnBlockContainer(jsonData['results'][0]);
+                setContainer(burnBlockContainer.getData());
+            } catch (error) {
+                console.error("Error fetching data:", error);
+            }
+        }
+
+        fetchData();
+    }, []);
+
+    return (
+        <div>
+            {container ? (
+               <DynamicCardCollapsible props={container} />
+            ) : (
+                <p>Loading...</p>
+            )}
+        </div>
+    );
+}
+\end{lstlisting}
+
+The function \lstinline|CardHolderEndpointBurnBlock| in Listing~\ref{CardHolderEndpointBurnBlock} 
+
+
+\begin{enumerate}
+
+\item 
+gets a BurnBlock from the endpoint defined in \lstinline|RoutesAndEndpoints|
+
+\item
+Puts the BurnBlock from the endpoint in a class instance of \lstinline|BurnBlockContainer|
+and then sets this to the \lstinline|container| in \lstinline|setContainer(burnBlockContainer.getData())|.
+
+
+\item
+Assuming the \lstinline|container| is not \lstinline|null|, its data is 
+put in the props\\ of \lstinline|<DynamicCardCollapsible props={container} />|
+
+
+\end{enumerate}
+
+
 
 %
 %

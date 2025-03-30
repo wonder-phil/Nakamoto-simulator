@@ -4,7 +4,7 @@ import RoutesAndEndpoints from "./endPoints/RoutesAndEndpoints";
 import BurnBlockContainer from "./coreContainers/BurnBlockContainer";
 import DynamicCardCollapsible from "./DynamicCardCollapsible";
 
-export default function CardHolderEndpointBurnBlock(fullBitcoinHash) {
+export default function CardHolderEndpointBurnBlock() {
     
     const [container, setContainer] = useState(null);
 
