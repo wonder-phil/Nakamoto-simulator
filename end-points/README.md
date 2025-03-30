@@ -17,6 +17,7 @@
 
 > In **terminal 1** <br />
 > <br />
+>> git clone https://github.com/wonder-phil/Nakamoto-simulator/blob/main/proxy <br />
 >> cd proxy <br />
 >> npm init -y <br />
 >> npm install cors <br />
@@ -25,7 +26,7 @@
 > <br />
 
 > In **terminal 2** <br />
-> <br />
+>> git clone https://github.com/wonder-phil/Nakamoto-simulator/tree/main/end-points <br />
 >> cd end_points <br />
 >> npm install <br />
 >> npm start <br />
