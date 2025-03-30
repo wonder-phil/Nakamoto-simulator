@@ -1,7 +1,7 @@
 
 # Nakamoto-simulator <br /> <br />
-## Card-example-dynamic-w-endpoints
-## [See the pdf file](https://github.com/wonder-phil/Nakamoto-simulator/blob/main/docs/card-dynamic-endpoint.pdf) <br /> <br />
+## Card-example-dynamic-w-endpoint <br /> <br />
+## [See the pdf file](https://github.com/wonder-phil/Nakamoto-simulator/blob/main/docs/Card-dynamic-w-endpoint.pdf) <br /> <br />
 > Structure of this repo <br />
 >> **src** contains the main software components <br />
 >> **public** contains index.html and related files <br />
