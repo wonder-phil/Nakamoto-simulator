@@ -11,33 +11,15 @@ bb985beebfb73a2f36993b9a32e211c4e2fe16e8ca57"
 
 export default class BurnBlockContainer extends JsonContainer {
    
-        constructor(data = {}) {
-            super(data);
-            this.setData({...data, 
-				"card_title" : CardText.CARD_TITLE_BURN_BLOCK});
-        }
-    
-        static bitcoinFields = [
-            "canonical",
-            "height",
-            "hash",
-            "block_time",
-            "block_time_iso",
-            "tenure_height",
-            "index_block_hash",
-            "parent_block_hash",
-            "burn_block_time",
-            "burn_block_time_iso",
-            "burn_block_hash",
-            "burn_block_height",
-            "miner_tx_id",
-            "execution_cost_read_count",
-            "execution_cost_read_length",
-            "execution_cost_runtime",
-            "execution_cost_write_count",
-            "execution_cost_write_length",
-            "txs"
-        ];
-    
-    
+    constructor(data = {}) {
+        super(data);
+        this.setData({...data, 
+            "card_title" : CardText.CARD_TITLE_BURN_BLOCK,
+            "button_open" : "burn_block_hash",
+            "button_closed" : "burn_block_hash" 
+        
+        });
     }
+
+
+}

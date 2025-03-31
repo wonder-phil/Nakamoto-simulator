@@ -18,14 +18,14 @@ export default function DynamicCardCollapsible ({ props }) {
     <div className="card custom-card border-primary mb-3">
     <Card style={{ maxWidth: "700px", margin: "auto" }} className="container ms-0" >
       <Card.Body>
-        <Card.Title><h3>{props['card_title']}, height: {props['burn_block_height']}</h3></Card.Title>
+        <Card.Title><h3>{props['card_title']}</h3></Card.Title>
         <ul className="list-group list-group-flus no-bullets">
           <li className="list-group-item text-primary">
             <Button
               onClick={() => setOpen(!open)}
               className="mb-2"
               >
-              <h6>{open ? "Hash: " + props['burn_block_hash'] :  "Hash tail: " + props['burn_block_hash'].slice(-20) }</h6>
+              <h6>{open ? props['button_open'] + ": " + props[props['button_open']] :  props['button_closed'] + ": " + props[props['button_closed']] }</h6>
           </Button>
           </li>
             <ul className="no-bullets">  <h6> 

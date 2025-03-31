@@ -263,7 +263,22 @@ class JsonContainer {
 %
 %
 
-Each class that inherits from the class \lstinline|JsonContainer| has a constructor as seen in Listing~\ref{BurnBlockContainer-constructor}.
+
+%
+%
+\vspace{0.2in}
+%
+%
+
+%
+%
+\section{Classes derived from JsonContainer}
+%
+%
+Each of the classes \lstinline|BurnBlockContainer|, \lstinline|PoxCycle|, \lstinline|StacksBlock|, and \lstinline|TenureTxContainer|
+are derived from \lstinline|JsonContainer|.
+
+Indeed, any class that inherits from the class \lstinline|JsonContainer| might have a constructor as seen in Listing~\ref{BurnBlockContainer-constructor}.
 
 
 
@@ -281,15 +296,13 @@ export default class BurnBlockContainer extends JsonContainer {
 }
 \end{lstlisting}
 
+The Listing~\ref{BurnBlockContainer-constructor} uses the JavaScript $\ldots$ operator to split the object \lstinline|data| so the 
+new field "card\_title" and its value may be added.
+
 The \lstinline|data| passed into the class \lstinline|BurnBlockContainer| may be modified to surpress some fields from being
 presented.
 This will be on a block-type by block-type basis.
 
-%
-%
-\vspace{0.2in}
-%
-%
 
 %
 %

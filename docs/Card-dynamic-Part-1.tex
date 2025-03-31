@@ -337,7 +337,7 @@ In Listing~\ref{updateApp.js}, the basic updated version is,\\
         <Card style={{ maxWidth: "700px", margin: "auto" }} 
               className="container ms-0" >
         <Card.Body>
-          <Card.Title><h3>Burn Block</h3></Card.Title>
+          <Card.Title><h3>{props['card_title]}</h3></Card.Title>
           <ul className="list-group list-group-flus no-bullets">
             <li class="list-group-item text-primary">
               <Button
@@ -364,7 +364,8 @@ In Listing~\ref{updateApp.js}, the basic updated version is,\\
 \end{lstlisting}
 
 Listing~\ref{subCardListing} shows a basic {\em dyamic} card from React-bootstrap.
-This card holds a Stacks block.
+This card holds any block. 
+It is purposely designed to hold any block so each block on the explorer looks similar.
 This is in~ the file~\lstinline[language=bash]|DyanmicCardFull.js| in the \lstinline[language=bash]|src/components| directory.
 
 
