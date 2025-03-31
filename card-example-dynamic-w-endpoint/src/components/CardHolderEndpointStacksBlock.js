@@ -34,7 +34,7 @@ export default function CardHolderEndpointBurnBlock() {
             {container ? (
                <DynamicCardCollapsible props={container} />
             ) : (
-                <p>Loading...</p>
+                <p>Loading...is the PROXY running?</p>
             )}
         </div>
     );

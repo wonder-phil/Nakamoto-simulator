@@ -38,7 +38,7 @@ export default function GetLastTenureTx() {
             {container ? (
                 <h6>{container.toJson()}</h6>
             ) : (
-                <p>Loading...</p>
+                <p>Loading...is the PROXY running?</p>
             )}
         </div>
     );
